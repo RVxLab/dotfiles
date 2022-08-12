@@ -1,0 +1,8 @@
+bat
+exa
+neovim
+httpie
+tmux
+wget
+yabai
+
