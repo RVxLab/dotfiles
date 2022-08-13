@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
 banner () {
     local TEXT="$1"
     local TEXT_LENGTH=${#TEXT}

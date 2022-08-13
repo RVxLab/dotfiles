@@ -4,6 +4,7 @@ set -euo pipefail
 
 . util.sh
 . brew.sh
+. fonts.sh
 
 # Print the banner (it's pretty)
 echo
@@ -27,4 +28,6 @@ install_formulae
 log "Installing Homebrew Casks"
 install_casks
 
+log "Installing Cascadia Code"
+download_cascadia_code
 

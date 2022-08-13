@@ -1,7 +1,9 @@
 bat
+curl
 exa
-neovim
 httpie
+jq
+neovim
 tmux
 wget
 yabai
