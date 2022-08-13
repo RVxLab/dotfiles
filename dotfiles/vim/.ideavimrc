@@ -1,0 +1,58 @@
+source ~/.vimrc
+
+" ###################################################
+" Override system clipboard usage
+set clipboard=+unnamed
+set clipboard=+ideaput
+
+" ###################################################
+" Idea shortcuts
+
+sethandler <C-N> a:vim n:ide
+sethandler <C-B> a:vim n:ide
+sethandler <C-K> a:ide i:vim
+sethandler <C-O> a:vim n:ide
+
+" ###################################################
+" Plugins
+set NERDTree
+set surround
+set ideajoin
+set idearefactormode=keep
+
+" ###################################################
+" Idea specific shortcuts
+
+" Open .ideavimrc
+nnoremap \e :e ~/.ideavimrc<CR>
+
+" Reload .ideavimrc
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+" Navigation
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+nnoremap <leader>h <c-w>h
+nnoremap <leader>j <c-w>j
+nnoremap <leader>k <c-w>k
+nnoremap <leader>l <c-w>l
+
+nnoremap <leader>1 :action SelectInProjectView<CR>
+
+nnoremap gc :action GotoClass<CR>
+nnoremap gf :action GotoFile<CR>
+
+nnoremap [e :action GotoPreviousError<CR>
+nnoremap ]e :action GotoNextError<CR>
+
+" Code generation
+nnoremap nf :action NewFile<CR>
+
+" Editing
+nnoremap <leader>qa :action CloseAllEditors<CR>
+
+if &ide ==# "PhpStorm"
+    nnoremap <leader>nc :action PhpNewClass<CR>
+end

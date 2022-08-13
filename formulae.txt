@@ -4,6 +4,7 @@ exa
 httpie
 jq
 neovim
+stow
 tmux
 wget
 yabai

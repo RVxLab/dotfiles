@@ -1,10 +1,18 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 set -euo pipefail
+
+if [[ "$0" != "$BASH_SOURCE" ]]
+then
+    echo "main.sh should not be sourced, run it with 'bash main.sh'"
+    exit 0
+fi
+
 
 . util.sh
 . brew.sh
 . fonts.sh
+. stow.sh
 
 # Print the banner (it's pretty)
 echo
@@ -31,3 +39,5 @@ install_casks
 log "Installing Cascadia Code"
 download_cascadia_code
 
+log "Running Stow"
+run_stow
