@@ -1,5 +1,5 @@
 shell:
-  program: /usr/bin/tmux
+  program: /opt/homebrew/bin/tmux
 
 font:
   normal:
