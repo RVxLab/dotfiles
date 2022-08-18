@@ -3,18 +3,18 @@ shell:
 
 font:
   normal:
-    family: "Cascadia Code"
+    family: "Cascadia Mono PL"
     style: Regular
 
   bold:
-    family: "Cascadia Code"
+    family: "Cascadia Mono PL"
     style: Bold
 
   italic:
-    family: "Cascadia Code" 
+    family: "Cascadia Mono PL"
     style: Italic
 
-  size: 11.0
+  size: 13.0
 
 # Colors (Nord)
 colors:
