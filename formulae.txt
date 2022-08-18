@@ -3,6 +3,7 @@ curl
 exa
 httpie
 jq
+just
 neovim
 stow
 tmux
