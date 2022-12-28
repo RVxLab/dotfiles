@@ -79,4 +79,9 @@ return {
         build = 'make',
         cond = vim.fn.executable 'make' == 1
     },
+
+    {
+        'ThePrimeagen/harpoon',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
 }
