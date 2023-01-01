@@ -1,9 +1,7 @@
-alacritty
 chromium
 docker
 drawio
 firefox
-hammerspoon
 insomnia
 jetbrains-toolbox
 karabiner-elements

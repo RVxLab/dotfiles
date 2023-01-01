@@ -4,9 +4,7 @@ exa
 httpie
 jq
 just
-neovim
+ripgrep
 stow
-tmux
 wget
-yabai
 

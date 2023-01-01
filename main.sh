@@ -37,10 +37,10 @@ log "Installing Homebrew Casks"
 install_casks
 
 log "Installing Cascadia Code"
-download_cascadia_code
+install_cascadia_code
 
 log "Installing Caskaydia Cove"
-download_caskayvia_cove
+install_caskaydia_cove
 
 log "Running Stow"
 run_stow

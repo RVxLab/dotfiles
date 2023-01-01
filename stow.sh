@@ -2,8 +2,17 @@
 
 set -euo pipefail
 
+STOW=$(which stow)
+LS="/bin/ls"
+
+find_stowable () {
+    $LS ./dotfiles
+}
+
 run_stow () {
-    $(which stow) -d dotfiles -t "$HOME" alacritty tmux vim
+    local FILES=$(find_stowable)
+
+    $STOW -d dotfiles -t "$HOME" $FILES
 }
 
 if [[ "$0" == "$BASH_SOURCE" ]]
