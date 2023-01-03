@@ -23,5 +23,4 @@ vim.o.termguicolors = true
 vim.o.completeopt = 'menuone,noselect'
 
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
 

@@ -12,3 +12,10 @@ helpers.nmap('[d', vim.diagnostic.goto_prev)
 helpers.nmap(']d', vim.diagnostic.goto_next)
 helpers.nmap('<leader>e', vim.diagnostic.open_float)
 helpers.nmap('<leader>q', vim.diagnostic.setloclist)
+
+-- Vim config
+helpers.nmap('\\Cr', function ()
+    vim.cmd('source $MYVIMRC')
+    vim.cmd('echo "Vim config has been reloaded"')
+end, 'Reload the vim config')
+

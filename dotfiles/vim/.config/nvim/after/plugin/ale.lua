@@ -5,6 +5,9 @@ local aleLinters = {
     [ 'typescriptreact' ] = {
         'eslint',
     },
+    [ 'php' ] = {
+        'phpstan',
+    },
 }
 local aleFixers = {
     ['typescript'] = {
@@ -12,6 +15,9 @@ local aleFixers = {
     },
     [ 'typescriptreact' ] = {
         'prettier',
+    },
+    [ 'php' ] = {
+        'pint',
     },
 }
 

@@ -31,8 +31,6 @@ return {
 
     { 'dense-analysis/ale' },
 
-    { 'easymotion/vim-easymotion' },
-
     {
         'neovim/nvim-lspconfig',
         dependencies = {
