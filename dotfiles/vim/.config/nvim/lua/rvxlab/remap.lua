@@ -14,8 +14,8 @@ helpers.nmap('<leader>e', vim.diagnostic.open_float)
 helpers.nmap('<leader>q', vim.diagnostic.setloclist)
 
 -- Vim config
-helpers.nmap('\\Cr', function ()
+helpers.nmap('<leader>RLD', function ()
     vim.cmd('source $MYVIMRC')
     vim.cmd('echo "Vim config has been reloaded"')
-end, 'Reload the vim config')
+end, '[R]e[l]oa[d] the vim config')
 

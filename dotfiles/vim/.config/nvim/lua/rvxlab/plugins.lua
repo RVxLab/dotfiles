@@ -91,5 +91,11 @@ return {
         'ThePrimeagen/harpoon',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
+
+    {
+        'phpactor/phpactor',
+        ft = 'php',
+        build = 'composer install --no-dev -o',
+    },
 }
 

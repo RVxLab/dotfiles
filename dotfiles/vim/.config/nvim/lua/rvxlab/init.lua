@@ -7,3 +7,9 @@ local packages = require('rvxlab.packages')
 packages.init()
 packages.setup()
 
+-- Import remaps
+require('rvxlab.remap')
+
+-- Import auto commands
+require('rvxlab.autocmd')
+
