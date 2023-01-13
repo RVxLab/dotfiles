@@ -1,58 +1,59 @@
-source ~/.vimrc
+" START settings
+set syntax
 
-" ###################################################
-" Override system clipboard usage
-set clipboard=+unnamed
-set clipboard=+ideaput
+" Use relative line numbering
+set number
+set relativenumber
 
-" ###################################################
-" Idea shortcuts
+" Use 4 spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
 
-sethandler <C-N> a:vim n:ide
-sethandler <C-B> a:vim n:ide
-sethandler <C-K> a:ide i:vim
-sethandler <C-O> a:vim n:ide
+" Scroll offset from top and bottom
+set scrolloff=5
+" END settings
 
-" ###################################################
-" Plugins
+" START plugins
 set NERDTree
 set surround
-set ideajoin
-set idearefactormode=keep
+set commentary
+set highlightedyank
+" END plugins
 
-" ###################################################
-" Idea specific shortcuts
+" START remaps
+let mapleader=" "
 
 " Open .ideavimrc
-nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \ie :e ~/.ideavimrc<CR>
 
 " Reload .ideavimrc
-nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap \ir :action IdeaVim.ReloadVimRc.reload<CR>
 
-" Navigation
-nnoremap <TAB> :action NextTab<CR>
-nnoremap <s-TAB> :action PreviousTab<CR>
-nnoremap [[ :action MethodUp<CR>
-nnoremap ]] :action MethodDown<CR>
-nnoremap <leader>h <c-w>h
-nnoremap <leader>j <c-w>j
-nnoremap <leader>k <c-w>k
-nnoremap <leader>l <c-w>l
+" Select all
+nnoremap <leader>AA ggVG
 
-nnoremap <leader>1 :action SelectInProjectView<CR>
+" Create 2 blank lines below cursor and move to the first
+nnoremap <leader>o o<CR><Esc>ki
 
-nnoremap gc :action GotoClass<CR>
-nnoremap gf :action GotoFile<CR>
+" Create 2 blank lines above cursor and move to the first
+nnoremap <leader>O O<CR><Esc>ki
 
-nnoremap [e :action GotoPreviousError<CR>
-nnoremap ]e :action GotoNextError<CR>
+noremap <leader>y "*y
+noremap <leader>p "*p
+noremap <leader>Y "+y
+noremap <leader>P "+p
 
-" Code generation
-nnoremap nf :action NewFile<CR>
+nnoremap <leader>s ^v$
 
-" Editing
-nnoremap <leader>qa :action CloseAllEditors<CR>
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
 
-if &ide ==# "PhpStorm"
-    nnoremap <leader>nc :action PhpNewClass<CR>
-end
+\map <leader>1 <Action>(SelectInProjectView)
+
+nmap <leader>gtc <Action>(GotoClass)
+nmap <leader>gtf <Action>(GotoFile)
+
+nmap <leader>qa <Action>(CloseAllEditors)
+" END remaps
