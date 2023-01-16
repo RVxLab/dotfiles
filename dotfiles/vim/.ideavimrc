@@ -52,8 +52,18 @@ nmap ]] <Action>(MethodDown)
 
 \map <leader>1 <Action>(SelectInProjectView)
 
-nmap <leader>gtc <Action>(GotoClass)
-nmap <leader>gtf <Action>(GotoFile)
+nmap <leader>cc <Action>(GotoClass)
+nmap <leader>cf <Action>(GotoFile)
 
 nmap <leader>qa <Action>(CloseAllEditors)
+
+nmap grn <Action>(RenameElement)
 " END remaps
+
+" START ide specifics
+if has('ide')
+    if &ide =~? 'phpstorm'
+        nmap <leader>nC <Action>(PhpNewClass)
+    endif
+endif
+" END ide specifics
