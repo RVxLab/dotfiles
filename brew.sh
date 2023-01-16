@@ -21,33 +21,10 @@ install_brew () {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-install_formulae () {
-    OIFS="$IFS"
-    IFS=$'\n' FORMULAE=( $(< formulae.txt) )
-    IFS="$OIFS"
+install_from_brewfile () {
+    local BREW="$(which brew)"
 
-    $(which brew) install "${FORMULAE[@]}"
-}
-
-install_casks () {
-    OIFS="$IFS"
-    IFS=$'\n' CASKS=( $(< casks.txt) )
-    IFS="$OIFS"
-
-    local FAILED_CASKS=()
-
-    for CASK in "${CASKS[@]}"
-    do
-        if ! $(which brew) install --casks "$CASK"
-        then
-            FAILED_CASKS+=("$CASK")
-        fi
-    done
-
-    if [[ ${#FAILED_CASKS[@]} -gt 0 ]]
-    then
-        echo "Some casks failed to install: ${FAILED_CASKS[@]}"
-    fi
+    $BREW bundle install
 }
 
 if [[ "$0" == "$BASH_SOURCE" ]]
@@ -56,16 +33,14 @@ then
     then
 
         install_brew
-        
+
         if ! check_brew
         then
-            echo "Could not determind if Homebrew was installed ('which brew' failed), verify manually and re-run script"
+            echo "Could not determine if Homebrew was installed ('which brew' failed), verify manually and re-run script"
             exit 100
         fi
     fi
 
-    install_formulae
-
-    install_casks
+    install_from_brewfile
 fi
 

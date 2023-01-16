@@ -39,9 +39,6 @@ install_casks
 log "Installing Cascadia Code"
 install_cascadia_code
 
-log "Installing Caskaydia Cove"
-install_caskaydia_cove
-
 log "Running Stow"
 run_stow
 
