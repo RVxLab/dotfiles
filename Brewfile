@@ -12,8 +12,7 @@ brew "httpie"
 brew "jq"
 brew "just"
 brew "ripgrep"
-# Enable Sketchybar once set up
-# brew "sketchybar"
+brew "sketchybar"
 brew "stow"
 brew "wget"
 # Enable Yabai once set up
