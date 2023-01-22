@@ -1,0 +1,16 @@
+# Font
+font:
+  normal:
+    family: "CaskaydiaCove Nerd Font Mono"
+  bold:
+    family: "CaskaydiaCove Nerd Font Mono"
+  italic:
+    family: "CaskaydiaCove Nerd Font Mono"
+  bold_italic:
+    family: "CaskaydiaCove Nerd Font Mono"
+  size: 14.0
+
+# Theming
+import:
+  - ./One-Dark.yml
+

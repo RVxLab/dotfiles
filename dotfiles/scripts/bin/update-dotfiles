@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+DOTFILES_DIR="$HOME/.dotfiles"
+
+if ! pushd "$DOTFILES_DIR"
+then
+    echo "Failed to changed dir to $DOTFILES_DIR"
+    exit 1
+fi
+
+if ! git pull
+then
+    echo "Failed to update dotfiles, check git logs and try again"
+fi
+
+popd
+

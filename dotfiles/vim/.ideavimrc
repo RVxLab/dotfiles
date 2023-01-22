@@ -58,6 +58,8 @@ nmap <leader>cf <Action>(GotoFile)
 nmap <leader>qa <Action>(CloseAllEditors)
 
 nmap grn <Action>(RenameElement)
+
+nmap <leader>E <Action>(ShowErrorDescription)
 " END remaps
 
 " START ide specifics

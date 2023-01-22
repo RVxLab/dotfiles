@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+TIC="/usr/bin/tic"
+GUNZIP="/usr/bin/gunzip"
+CURL="/usr/bin/curl"
+INFOCMP="/usr/bin/infocmp"
+
+TERMINFO=(
+    "alacritty-direct"
+    "tmux-256color"
+)
+
+TERMINFO_STR="$(IFS=, ; echo "${TERMINFO[*]}")"
+
+echo "Entering /tmp"
+pushd /tmp
+
+echo "Downloading and gunzipping terminfo"
+rm -f terminfo.src terminfo.src.gz
+"$CURL" -LO https://invisible-island.net/datafiles/current/terminfo.src.gz && $GUNZIP terminfo.src.gz
+
+echo "Installing terminfo, requires sudo"
+sudo "$TIC" -xe "$TERMINFO_STR" terminfo.src
+
+for TINFO in ${TERMINFO[@]}
+do
+    echo "Checking if $TINFO is installed"
+    if ! "$INFOCMP" -x "$TINFO" > /dev/null
+    then
+        echo "$TINFO is not installed"
+        exit 1
+    fi
+done
+
+echo "Done!"
+
