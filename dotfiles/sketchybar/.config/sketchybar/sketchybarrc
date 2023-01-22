@@ -3,6 +3,12 @@
 # For a more advanced configuration example see my dotfiles:
 # https://github.com/FelixKratz/dotfiles
 
+set -e
+
+PWD=$(dirname $0)
+
+source "$PWD/util.sh"
+
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
 ##### Bar Appearance #####
@@ -12,13 +18,19 @@ PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar height=32        \
-                 blur_radius=50   \
-                 position=top     \
-                 sticky=off       \
-                 padding_left=10  \
-                 padding_right=10 \
-                 color=0x15ffffff
+sketchybar --bar \
+    color=$BLACK \
+    height=32 \
+    position=bottom \
+    sticky=off
+
+# sketchybar --bar height=32        \
+#                  blur_radius=50   \
+#                  position=top     \
+#                  sticky=off       \
+#                  padding_left=10  \
+#                  padding_right=10 \
+#                  color=0x15ffffff
 
 ##### Changing Defaults #####
 # We now change some default values that are applied to all further items
@@ -41,7 +53,7 @@ sketchybar --default updates=when_shown                    \
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+SPACE_ICONS=("" "" "" "")
 
 for i in "${!SPACE_ICONS[@]}"
 do
@@ -58,8 +70,7 @@ do
                               background.height=22                       \
                               background.drawing=off                     \
                               label.drawing=off                          \
-                              script="$PLUGIN_DIR/space.sh"              \
-                              click_script="yabai -m space --focus $sid"
+                              script="$PLUGIN_DIR/space.sh"
 done
 
 ##### Adding Left Items #####
@@ -98,3 +109,4 @@ sketchybar --add item clock right                        \
 sketchybar --update
 
 echo "sketchybar configuration loaded.."
+

@@ -2,7 +2,7 @@
 tap "homebrew/cask"
 tap "FelixKratz/formulae"
 tap "homebrew/cask-fonts"
-# tap "koekeishiya/formulae"
+tap "koekeishiya/formulae"
 
 # Formulea
 brew "bat"
@@ -12,13 +12,14 @@ brew "fish"
 brew "httpie"
 brew "jq"
 brew "just"
+brew "lua"
 brew "ripgrep"
 brew "sketchybar"
+brew "starship"
 brew "stow"
 brew "tmux"
 brew "wget"
-# Enable Yabai once set up
-# brew "koekeishiya/formulae/yabai"
+brew "koekeishiya/formulae/yabai", restart_service: :changed
 brew "zoxide"
 
 # Casks
@@ -29,8 +30,7 @@ cask "drawio"
 cask "firefox"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-hack-nerd-font"
-# Enable Hammerspoon once it's set up
-# cask "hammerspoon"
+cask "hammerspoon"
 cask "insomnia"
 cask "jetbrains-toolbox"
 cask "karabiner-elements"
