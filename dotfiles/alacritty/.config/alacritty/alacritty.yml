@@ -12,5 +12,5 @@ font:
 
 # Theming
 import:
-  - ./One-Dark.yml
+  - ~/.config/alacritty/One-Light.yml
 

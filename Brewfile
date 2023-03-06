@@ -23,7 +23,6 @@ brew "koekeishiya/formulae/yabai", restart_service: :changed
 brew "zoxide"
 
 # Casks
-cask "alacritty"
 cask "alfred"
 cask "docker"
 cask "drawio"
@@ -38,5 +37,6 @@ cask "libreoffice"
 cask "linearmouse"
 cask "obsidian"
 cask "polypane"
+cask "raycast"
 cask "vivaldi"
 
