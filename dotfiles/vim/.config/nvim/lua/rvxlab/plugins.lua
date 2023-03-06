@@ -1,10 +1,12 @@
 return {
     {
-        "navarasu/onedark.nvim",
+        "Th3Whit3Wolf/one-nvim",
         lazy = false,
         priority = 9001,
         config = function ()
-            vim.cmd [[colorscheme onedark]]
+            vim.cmd [[colorscheme one-nvim]]
+            vim.o.background = "light"
+
         end
     },
     { 'tpope/vim-fugitive' },
