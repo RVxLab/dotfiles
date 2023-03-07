@@ -1,5 +1,5 @@
--- jq
-local jq = require 'jq'
+-- Brew
+local brew = require "brew"
 
 -- Yabai
 local yabai = require "yabai"
@@ -14,13 +14,10 @@ end)
 -- Enable Stackline
 local stackline = require "stackline"
 
-print("================================" .. jq.jqBin)
-
 stackline:init()
 stackline.config:set("appearance.showIcons", false)
 stackline.config:set("paths.yabai", yabai.yabaiBin)
 
 -- Enable HS IPC
-local brew = require "brew"
 hs.ipc.cliInstall(brew.brewBase)
 
