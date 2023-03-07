@@ -1,3 +1,0 @@
-[submodule "dotfiles/hammerspoon/.hammerspoon/stackline"]
-	path = dotfiles/hammerspoon/.hammerspoon/stackline
-	url = https://github.com/AdamWagner/stackline.git
