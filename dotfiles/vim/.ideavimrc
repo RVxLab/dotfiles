@@ -54,6 +54,8 @@ nmap ]] <Action>(MethodDown)
 
 nmap <leader>cc <Action>(GotoClass)
 nmap <leader>cf <Action>(GotoFile)
+nmap <leader>cs <Action>(GotoSymbol)
+nmap <leader>ca <Action>(GotoAction)
 
 nmap <leader>qa <Action>(CloseAllEditors)
 
