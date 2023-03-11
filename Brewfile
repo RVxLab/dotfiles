@@ -12,8 +12,6 @@ brew "httpie"
 brew "jq"
 brew "just"
 brew "lua"
-brew "podman"
-brew "podman-compose"
 brew "ripgrep"
 brew "sketchybar", restart_service: :changed
 brew "starship"
@@ -25,6 +23,7 @@ brew "zoxide"
 
 # Casks
 cask "alfred"
+cask "docker"
 cask "drawio"
 cask "firefox"
 cask "font-caskaydia-cove-nerd-font"
