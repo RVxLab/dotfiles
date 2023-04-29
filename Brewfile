@@ -1,8 +1,6 @@
 # Taps
 tap "homebrew/cask"
-tap "FelixKratz/formulae"
 tap "homebrew/cask-fonts"
-tap "koekeishiya/formulae"
 
 # Formulea
 brew "bat"
@@ -13,12 +11,10 @@ brew "jq"
 brew "just"
 brew "lua"
 brew "ripgrep"
-brew "sketchybar", restart_service: :changed
 brew "starship"
 brew "stow"
 brew "tmux"
 brew "wget"
-brew "koekeishiya/formulae/yabai", restart_service: :changed
 brew "zoxide"
 
 # Casks

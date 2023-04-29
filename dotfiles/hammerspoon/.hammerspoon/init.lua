@@ -2,8 +2,8 @@
 local brew = require "brew"
 
 -- Yabai
-local yabai = require "yabai"
-yabai.init()
+-- local yabai = require "yabai"
+-- yabai.init()
 
 -- General binds
 hs.hotkey.bindSpec({ { "ctrl", "cmd", "alt" }, "r" }, function ()
@@ -12,11 +12,11 @@ hs.hotkey.bindSpec({ { "ctrl", "cmd", "alt" }, "r" }, function ()
 end)
 
 -- Enable Stackline
-local stackline = require "stackline"
-
-stackline:init()
-stackline.config:set("appearance.showIcons", false)
-stackline.config:set("paths.yabai", yabai.yabaiBin)
+-- local stackline = require "stackline"
+--
+-- stackline:init()
+-- stackline.config:set("appearance.showIcons", false)
+-- stackline.config:set("paths.yabai", yabai.yabaiBin)
 
 -- Enable HS IPC
 hs.ipc.cliInstall(brew.brewBase)

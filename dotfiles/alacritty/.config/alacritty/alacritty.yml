@@ -1,16 +1,16 @@
 # Font
 font:
   normal:
-    family: "CaskaydiaCove Nerd Font Mono"
+    family: "FiraCode Nerd Font"
   bold:
-    family: "CaskaydiaCove Nerd Font Mono"
+    family: "FiraCode Nerd Font"
   italic:
-    family: "CaskaydiaCove Nerd Font Mono"
+    family: "FiraCode Nerd Font"
   bold_italic:
-    family: "CaskaydiaCove Nerd Font Mono"
+    family: "FiraCode Nerd Font"
   size: 14.0
 
 # Theming
 import:
-  - ~/.config/alacritty/One-Light.yml
+  - ~/.config/alacritty/One-Dark.yml
 

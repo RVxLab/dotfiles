@@ -21,10 +21,10 @@ format = "[$symbol($version )]($style)"
 format = "[$symbol($version )]($style)"
 
 [custom.laravel]
-detect_files = ["artisan"]
+detect_files = ["artisan", "vendor/autoload.php"]
 style = "bold red"
 symbol = "L"
-command = "php artisan --version | awk '{print $3}'"
+command = "bash ~/bin/laravel.starship.sh"
 format = "[$symbol $output ]($style)"
 
 [fill]

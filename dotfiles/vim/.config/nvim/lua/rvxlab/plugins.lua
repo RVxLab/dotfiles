@@ -5,7 +5,7 @@ return {
         priority = 9001,
         config = function ()
             vim.cmd [[colorscheme one-nvim]]
-            vim.o.background = "light"
+            vim.o.background = "dark"
 
         end
     },
