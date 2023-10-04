@@ -72,6 +72,7 @@ symbol = " "
 
 [rust]
 symbol = " "
+format = "[$symbol($version )]($style)"
 
 [time]
 disabled = false

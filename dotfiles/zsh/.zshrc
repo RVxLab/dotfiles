@@ -32,6 +32,7 @@ alias ls="exa -lag --header"
 alias ll="ls"
 alias cat="bat"
 alias a="artisan"
+alias fzf="fzf --preview 'bat {}'"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -39,13 +40,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Set up PATH
-export PATH="$PATH:$HOME/bin:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.composer/vendor/bin"
+export PATH="$PATH:$HOME/bin:$HOME/scripts:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.composer/vendor/bin"
 
 # Init Starship
 eval "$(starship init zsh)"
 
 # Init Zoxide
 eval "$(zoxide init zsh)"
+
+# Fix word movement
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
 
 # Add Fuzzyfinder extension
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
