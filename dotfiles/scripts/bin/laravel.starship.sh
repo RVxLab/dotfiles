@@ -7,6 +7,8 @@ JSON_FILE="$STARSHIP_CACHE_DIR/laravel.json"
 
 VERSION_NOT_FOUND="___VERS_NOT_FOUND___"
 
+LARAVEL_APPLICATION_CLASS_FILE="vendor/laravel/framework/src/Illuminate/Foundation/Application.php"
+
 check_artisan() {
     if [ -f "$PWD/artisan" ] && [ -d "$PWD/vendor" ]
     then
@@ -26,6 +28,11 @@ get_project_name() {
 
 check_dependencies() {
     if ! command -v jq > /dev/null
+    then
+        return 1
+    fi
+
+    if ! command -v rg > /dev/null
     then
         return 1
     fi
@@ -86,21 +93,21 @@ did_version_change() {
         return 1
     fi
 
-    local COMPOSER_CHECKSUM=$(jq -r '."content-hash"' "composer.lock")
-    local CHECKSUM_FILE="$STARSHIP_CACHE_DIR/$NAME.checksum"
-    local CHECKSUM=""
+    local LARAVEL_VERSION="$(rg "VERSION = '(\d+\.\d+\.\d+)';" "$LARAVEL_APPLICATION_CLASS_FILE" -or '$1')"
+    local VERSION_FILE="$STARSHIP_CACHE_DIR/$NAME.version"
+    local VERSION=""
 
-    if [ -f "$CHECKSUM_FILE" ]
+    if [ -f "$VERSION_FILE" ]
     then
-        local CHECKSUM=$(cat "$CHECKSUM_FILE")
+        local VERSION=$(cat "$VERSION_FILE")
     fi
 
-    if [ "$COMPOSER_CHECKSUM" == "$CHECKSUM" ]
+    if [ "$LARAVEL_VERSION" == "$VERSION" ]
     then
         return 1
     fi
 
-    echo "$COMPOSER_CHECKSUM" > "$CHECKSUM_FILE"
+    echo "$LARAVEL_VERSION" > "$VERSION_FILE"
 
     return 0
 }
@@ -113,7 +120,7 @@ fi
 
 if ! check_dependencies
 then
-    echo "Missing dependencies" >2
+    echo "Missing dependencies, required jq and ripgrep" >2
     exit 1
 fi
 
