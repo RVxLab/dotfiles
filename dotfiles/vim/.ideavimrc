@@ -15,16 +15,18 @@ set autoindent
 set scrolloff=5
 " END settings
 
+" Rebind leader
+let mapleader=""
+
 " START plugins
-set NERDTree
-set surround
-set commentary
-set highlightedyank
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+Plug 'easymotion/vim-easymotion'
 " END plugins
 
 " START remaps
-let mapleader=" "
-
 " Open .ideavimrc
 nnoremap \ie :e ~/.ideavimrc<CR>
 
@@ -40,17 +42,15 @@ nnoremap <leader>o o<CR><Esc>ki
 " Create 2 blank lines above cursor and move to the first
 nnoremap <leader>O O<CR><Esc>ki
 
-noremap <leader>y "*y
-noremap <leader>p "*p
-noremap <leader>Y "+y
-noremap <leader>P "+p
+noremap <leader>y "+y
+noremap <leader>p "+p
 
 nnoremap <leader>s ^v$
 
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
 
-\map <leader>1 <Action>(SelectInProjectView)
+map <leader>1 <Action>(SelectInProjectView)
 
 nmap <leader>cc <Action>(GotoClass)
 nmap <leader>cf <Action>(GotoFile)
@@ -61,13 +61,8 @@ nmap <leader>qa <Action>(CloseAllEditors)
 
 nmap grn <Action>(RenameElement)
 
-nmap <leader>E <Action>(ShowErrorDescription)
+" Easymotion
+map <leader>j <Plug>(easymotion-f)
+map <leader>J <Plug>(easymotion-F)
 " END remaps
 
-" START ide specifics
-if has('ide')
-    if &ide =~? 'phpstorm'
-        nmap <leader>nC <Action>(PhpNewClass)
-    endif
-endif
-" END ide specifics
