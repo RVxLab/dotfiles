@@ -47,5 +47,6 @@ eval "$(starship init zsh)"
 # Init Zoxide
 eval "$(zoxide init zsh)"
 
-
+# Add Fuzzyfinder extension
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+

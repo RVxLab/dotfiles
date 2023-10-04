@@ -93,6 +93,20 @@ run_stow () {
     "$STOW" -d dotfiles -t "$HOME" $STOWABLES
 }
 
+# Git
+setup_git_config () {
+    git config --global init.defaultBranch "main"
+    git config --global core.editor "nvim"
+    git config --global core.excludesFile "$HOME/.gitignore"
+    git config --global diff.tool "difftastic"
+    git config -t bool --global difftool.prompt false
+    git config --global difftool.difftastic.cmd 'difft "$LOCAL" "$REMOTE"'
+    # Fix dittf command being mangled by git config
+    sed 's/cmd = difft \\\"\$LOCAL\\\" \\\"\$REMOTE\\\"/cmd = difft "\$LOCAL" "\$REMOTE"/' ~/.gitconfig
+
+    git config -t bool --global pages.difftool true
+}
+
 # Main
 main () {
     echo
@@ -110,6 +124,9 @@ main () {
 
     log "Running Stow"
     run_stow
+
+    log "Setting up base git config"
+    setup_git_config
 }
 
 if [[ "$0" = "$BASH_SOURCE" ]]
