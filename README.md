@@ -10,10 +10,9 @@ Clone this repo anywhere
 git clone git@github.com:/RVxLab/dotfiles ~/.dotfiles
 ```
 
-Run the main script
+Run the install script from the cloned repo
 
 ```shell
-cd ~/.dotfiles && bash main.sh
+cd ~/.dotfiles && bash install.sh
 ```
 
-Each script can also be run on its own

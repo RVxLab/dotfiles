@@ -18,7 +18,7 @@ then
     antigen bundle zsh-users/zsh-completions
     antigen bundle zsh-users/zsh-syntax-highlighting # Must be last
     antigen apply
-else 
+else
     echo "Antigen is not installed, check if the download script is correct"
 fi
 
@@ -31,6 +31,7 @@ alias h="history"
 alias ls="exa -lag --header"
 alias ll="ls"
 alias cat="bat"
+alias a="artisan"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
