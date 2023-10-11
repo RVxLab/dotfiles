@@ -16,7 +16,7 @@ set scrolloff=5
 " END settings
 
 " Rebind leader
-let mapleader=""
+let mapleader=" "
 
 " START plugins
 Plug 'preservim/nerdtree'
