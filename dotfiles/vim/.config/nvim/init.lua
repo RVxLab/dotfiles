@@ -1,1 +1,1 @@
-require('rvxlab')
+require('.')
