@@ -1,16 +1,5 @@
 local helpers = require('helpers')
 
-local function on_attach(buffer)
-    local map = helpers.make_mapper('<leader>t')
-    local api = require('nvim-tree.api')
-
-    api.config.mappings.default_on_attach(buffer)
-
-    map('n', 't', api.tree.open, 'Focus in NvimTree', {
-        buffer = buffer,
-    })
-end
-
 return {
     {
         'nvim-tree/nvim-tree.lua',
@@ -19,13 +8,16 @@ return {
         dependencies = {
             'nvim-tree/nvim-web-devicons',
         },
-        config = function()
-            require('nvim-tree').setup({
-                on_attach = on_attach,
-                view = {
-                    side = 'right',
-                },
-            })
+        opts = {
+            view = {
+                side = 'right',
+            },
+        },
+        init = function ()
+            local map = helpers.make_mapper('<leader>t')
+            local api = require('nvim-tree.api')
+
+            map('n', 't', api.tree.open, 'Focus in NvimTree')
         end,
     },
     {
