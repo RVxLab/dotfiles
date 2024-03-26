@@ -22,11 +22,11 @@ format = "[$symbol($version )]($style)"
 format = "[$symbol($version )]($style)"
 
 [custom.laravel]
-when = "test -f vendor/laravel/framework/src/Illuminate/Foundation/Application.php"
+when = "test -d vendor/laravel/framework"
 description = "Shows the current Laravel version"
 style = "bold red"
 symbol = "L"
-command = '''rg "const VERSION = '(.+)';" -r '$1' vendor/laravel/framework/src/Illuminate/Foundation/Application.php"'''
+command = "jq -r '.packages[] | select(.name == \"laravel/framework\") | .version' composer.lock"
 format = "[$symbol $output ]($style)"
 
 [fill]
