@@ -28,11 +28,12 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
 alias h="history"
-alias ls="exa -lag --header"
+alias ls="eza -lag --header"
 alias ll="ls"
 alias cat="bat"
-alias a="artisan"
+alias a="php artisan"
 alias fzf="fzf --preview 'bat {}'"
+alias lg="lazygit"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -40,7 +41,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # Set up PATH
-export PATH="$PATH:$HOME/bin:$HOME/scripts:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.composer/vendor/bin"
+export PATH="$PATH:$HOME/bin:$HOME/scripts"
+export PATH="$PATH:/opt/homebrew/bin"
+export PATH="$PATH:/opt/homebrew/opt/libpq/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:$HOME/.docker/bin"
+export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 
 # Init Starship
 eval "$(starship init zsh)"

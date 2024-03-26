@@ -22,10 +22,11 @@ format = "[$symbol($version )]($style)"
 format = "[$symbol($version )]($style)"
 
 [custom.laravel]
-detect_files = ["artisan", "vendor/autoload.php"]
+when = "test -f vendor/laravel/framework/src/Illuminate/Foundation/Application.php"
+description = "Shows the current Laravel version"
 style = "bold red"
 symbol = "L"
-command = "bash ~/bin/laravel.starship.sh"
+command = '''rg "const VERSION = '(.+)';" -r '$1' vendor/laravel/framework/src/Illuminate/Foundation/Application.php"'''
 format = "[$symbol $output ]($style)"
 
 [fill]
