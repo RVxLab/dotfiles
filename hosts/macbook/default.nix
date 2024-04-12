@@ -3,6 +3,7 @@ nix-darwin.lib.darwinSystem {
   system = "aarch64-darwin";
 
   modules = [
+    ../../modules/darwin
     # Add Home Manager
     home-manager.darwinModules.home-manager
     {
@@ -34,6 +35,11 @@ nix-darwin.lib.darwinSystem {
         useGlobalPkgs = true; # Use system nixpkgs instead of Home Manager's
         useUserPackages = true; # Install packages to /etc/profiles
         users.${username} = import ./home.nix;
+      };
+
+      # Enable Homebrew integration
+      homebrew = {
+        enable = true;
       };
     }
   ];
