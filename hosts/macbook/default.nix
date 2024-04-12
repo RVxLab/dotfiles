@@ -3,16 +3,11 @@ nix-darwin.lib.darwinSystem {
   system = "aarch64-darwin";
 
   modules = [
+    ../../modules/common
     ../../modules/darwin
     # Add Home Manager
     home-manager.darwinModules.home-manager
     {
-      # Allow Nix to manage itself
-      services.nix-daemon.enable = true;
-
-      # Enable Flakes
-      nix.settings.experimental-features = "nix-command flakes";
-
       # Create /etc/zshrc to load nix-darwin
       programs.zsh.enable = true;
 
