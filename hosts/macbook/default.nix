@@ -18,7 +18,10 @@ nix-darwin.lib.darwinSystem {
       nixpkgs.hostPlatform = "aarch64-darwin";
 
       # Set hostname
-      networking.hostName = hostname;
+      networking = {
+        hostName = hostname;
+        computerName = hostname;
+      };
 
       # Set up the user
       users.users.${username} = {
