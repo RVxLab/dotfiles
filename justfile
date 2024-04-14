@@ -5,7 +5,20 @@ default:
 
     OS_NAME="$(uname)"
     case "$OS_NAME" in
-        Darwin) darwin-rebuild switch --flake "$PWD"#macbook ;;
+        Darwin) just darwin-rebuild ;;
         *) echo "Not sure how to support $OS_NAME" && exit 1 ;;
     esac
+
+darwin-rebuild:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    if command -v darwin-rebuild > /dev/null
+    then
+        darwin-rebuild switch --flake "$PWD"#macbook
+        exit 0
+    fi
+
+    echo "darwin-rebuild not found, using nix run instead"
+    nix run nix-darwin -- switch --flake "$PWD"#macbook
 
