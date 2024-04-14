@@ -8,6 +8,7 @@
     # Additional PATHs
     sessionPath = [
       "$HOME/.local/share/bob/nvim-bin"
+      "$HOME/.composer/vendor/bin"
     ];
   };
 
