@@ -8,7 +8,7 @@ nix-darwin.lib.darwinSystem {
     # Add Home Manager
     home-manager.darwinModules.home-manager
     {
-      # Create /etc/zshrc to load nix-darwin
+      # Allow nix to manage shells
       programs.zsh.enable = true;
 
       # Used for backwards compatibility, check `darwin-rebuild changelog` before changing this
@@ -16,6 +16,12 @@ nix-darwin.lib.darwinSystem {
 
       # This is an arm64 Mac
       nixpkgs.hostPlatform = "aarch64-darwin";
+
+      # Add user to Nix trusted users
+      nix.settings.trusted-users = [
+        "root"
+        username
+      ];
 
       # Set hostname
       networking = {
