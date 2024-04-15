@@ -37,7 +37,9 @@
         ./modules/darwin
       ];
       specialArgs = {
-        vars = import ./host.nix;
+        vars = (import ./host.nix) // {
+          nvimPath = "~/.local/share/bob/nvim-bin/nvim";
+        };
       };
     };
   };

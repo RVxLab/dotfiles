@@ -1,6 +1,6 @@
-{ username, ... }:
+{ vars, ... }:
 {
-  home-manager.users.${username}.programs = {
+  home-manager.users.${vars.username}.programs = {
     zsh = {
       # Fix moving forwards and backwards between words with Opt + Arrow
       initExtra = ''
