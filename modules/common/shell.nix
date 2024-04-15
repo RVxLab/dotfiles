@@ -27,6 +27,9 @@
 
       # Shell
       starship
+
+      # Useful programs
+      ffmpeg
     ];
 
     programs = {
