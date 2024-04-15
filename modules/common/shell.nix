@@ -1,6 +1,6 @@
-{ username, ... }:
+{ vars, ... }:
 {
-  home-manager.users.${username}.programs = {
+  home-manager.users.${vars.username}.programs = {
     direnv = {
       # Enable Direnv
       enable = true;

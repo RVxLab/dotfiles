@@ -28,10 +28,17 @@
 
   in {
     # Define the MacOS System
-    darwinConfigurations = {
-      macbook = import ./hosts/macbook {
-        inherit nixpkgs nix-darwin home-manager;
-      } // (import ./host.nix);
+    darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [
+        home-manager.darwinModules.home-manager
+        ./hosts/macbook
+        ./modules/common
+        ./modules/darwin
+      ];
+      specialArgs = {
+        vars = import ./host.nix;
+      };
     };
   };
 }
