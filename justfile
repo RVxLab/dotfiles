@@ -9,6 +9,7 @@ default:
         *) echo "Not sure how to support $OS_NAME" && exit 1 ;;
     esac
 
+# Rebuild using darwin-rebuild
 darwin-rebuild:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -22,3 +23,6 @@ darwin-rebuild:
     echo "darwin-rebuild not found, using nix run instead"
     nix run nix-darwin -- switch --flake "$PWD"#macbook
 
+# Run a repl
+repl:
+    nix repl

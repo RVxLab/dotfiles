@@ -19,9 +19,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Firefox addons
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager } @ inputs:
+  outputs = { self, nix-darwin, nixpkgs, home-manager, firefox-addons, ... } @ inputs:
   let
     # Set the Git commit hash for darwin-version
     system.configurationRevision = self.rev or self.dirtyRev or null;
@@ -40,6 +46,8 @@
         vars = (import ./host.nix) // {
           nvimPath = "~/.local/share/bob/nvim-bin/nvim";
         };
+
+        firefox-addons = firefox-addons.packages.aarch64-darwin;
       };
     };
   };
