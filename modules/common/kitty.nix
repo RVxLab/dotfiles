@@ -27,7 +27,7 @@
       tab_title_template = "{title}";
 
       # Layout
-      enable_layouts = "grid";
+      enabled_layouts = "grid";
     };
 
     keybindings = {

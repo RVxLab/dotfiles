@@ -18,6 +18,7 @@
       "font-hack-nerd-font"
       "jetbrains-toolbox"
       "karabiner-elements"
+      "kitty"
       "libreoffice"
       "linearmouse"
       "obsidian"
