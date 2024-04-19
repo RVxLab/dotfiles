@@ -20,15 +20,36 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix User Repository
+    nurpkgs.url = "github:nix-community/NUR";
+
     # Firefox addons
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Firefox for MacOS
+    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager, firefox-addons, ... }:
+  outputs = { self, nix-darwin, nixpkgs, home-manager, nurpkgs, ... } @ inputs:
   let
+    # Define the overlays
+    darwinOverlays = [
+      inputs.nixpkgs-firefox-darwin.overlay
+    ];
+
+    overlays = [
+      nurpkgs.overlay
+    ];
+
+    # Packages helper
+    mkPkgs = system: overlays: import nixpkgs {
+      inherit system overlays;
+      config.allowUnfree = true;
+    };
+
     # Helper to create a Darwin system
     darwinSystem = system: { hostname, username, ... }:
     let
@@ -38,6 +59,7 @@
       };
     in nix-darwin.lib.darwinSystem {
       inherit system;
+      pkgs = mkPkgs system (overlays ++ darwinOverlays);
 
       modules = [
         home-manager.darwinModules.home-manager

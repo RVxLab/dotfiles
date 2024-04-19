@@ -11,14 +11,11 @@
     ];
 
     casks = [
-      "arc"
-      "firefox"
       "docker"
       "font-caskaydia-cove-nerd-font"
       "font-hack-nerd-font"
       "jetbrains-toolbox"
       "karabiner-elements"
-      "kitty"
       "libreoffice"
       "linearmouse"
       "obsidian"
