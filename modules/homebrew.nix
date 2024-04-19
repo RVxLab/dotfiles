@@ -20,5 +20,10 @@
       "linearmouse"
       "raycast"
     ];
+
+    brews = [
+      # TODO: Migrate to Nix-Darwin version, it currently crashes though
+      "koekeishiya/formulae/yabai"
+    ];
   };
 }
