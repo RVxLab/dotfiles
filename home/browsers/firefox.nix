@@ -1,16 +1,18 @@
-{ vars, firefox-addons, ... }:
+{ vars, ... }:
 let
-  extensions = with firefox-addons; [
-    don-t-fuck-with-paste
-    facebook-container
-    # TODO: Allow unfree
-    # honey
-    privacy-badger
-    proton-pass
-    ublacklist
-    ublock-origin
-    vue-js-devtools
-  ];
+  # extensions = with firefox-addons; [
+  #   don-t-fuck-with-paste
+  #   facebook-container
+  #   # TODO: Allow unfree
+  #   # honey
+  #   privacy-badger
+  #   proton-pass
+  #   ublacklist
+  #   ublock-origin
+  #   vue-js-devtools
+  # ];
+
+  extensions = [];
 
   policies = {
     # General policies
@@ -49,7 +51,7 @@ let
     Status = "locked";
   };
 in {
-  home-manager.users.${vars.username}.programs.firefox = {
+  programs.firefox = {
     enable = true;
 
     profiles = {

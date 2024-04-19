@@ -27,28 +27,47 @@
     };
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager, firefox-addons, ... } @ inputs:
+  outputs = { self, nix-darwin, nixpkgs, home-manager, firefox-addons, ... }:
   let
+    # Helper to create a Darwin system
+    darwinSystem = system: { hostname, username, ... }:
+    let
+      homeDirectory = "/Users/${username}";
+      vars = {
+        inherit hostname username system homeDirectory;
+      };
+    in nix-darwin.lib.darwinSystem {
+      inherit system;
+
+      modules = [
+        home-manager.darwinModules.home-manager
+        ./systems/darwin
+        ./modules/devenv.nix
+        ./modules/home-manager.nix
+        ./modules/homebrew.nix
+        ./modules/nix.nix
+        {
+          users.users.${username} = {
+            home = homeDirectory;
+          };
+
+          home-manager = {
+            extraSpecialArgs = {
+              inherit vars;
+            };
+
+            users.${username} = import ./home/darwin.nix;
+          };
+        }
+      ];
+
+      specialArgs = { inherit vars; };
+    };
+
     # Set the Git commit hash for darwin-version
     system.configurationRevision = self.rev or self.dirtyRev or null;
 
   in {
-    # Define the MacOS System
-    darwinConfigurations.macbook = nix-darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      modules = [
-        home-manager.darwinModules.home-manager
-        ./hosts/macbook
-        ./modules/common
-        ./modules/darwin
-      ];
-      specialArgs = {
-        vars = (import ./host.nix) // {
-          nvimPath = "~/.local/share/bob/nvim-bin/nvim";
-        };
-
-        firefox-addons = firefox-addons.packages.aarch64-darwin;
-      };
-    };
+    darwinConfigurations.macbook = darwinSystem "aarch64-darwin" (import ./host.nix);
   };
 }

@@ -1,6 +1,6 @@
-{ vars, ... }:
+{ ... }:
 {
-  home-manager.users.${vars.username}.programs.kitty = {
+  programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
     theme = "Catppuccin-Frappe";
@@ -11,7 +11,7 @@
     };
 
     settings = {
-      editor = vars.nvimPath;
+      editor = "nvim";
 
       # Font settings
       bold_font = "auto";
