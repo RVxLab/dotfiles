@@ -18,7 +18,6 @@
       "karabiner-elements"
       "libreoffice"
       "linearmouse"
-      "obsidian"
       "raycast"
     ];
   };
