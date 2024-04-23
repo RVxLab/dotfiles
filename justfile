@@ -43,12 +43,12 @@ darwin-rebuild-build:
 
     if command -v darwin-rebuild > /dev/null
     then
-        darwin-rebuild build --flake "$PWD"
+        darwin-rebuild build --flake "$PWD"#macbook
         exit 0
     fi
 
     echo "darwin-rebuild not found, using nix run instead"
-    nix run nix-darwin -- build --flake "$PWD"
+    nix run nix-darwin -- build --flake "$PWD"#macbook
 
 # Run a repl
 repl:
