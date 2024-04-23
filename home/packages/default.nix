@@ -1,6 +1,7 @@
 {
   imports = [
     ./cli.nix
+    ./database.nix
     ./direnv.nix
     ./ffmpeg.nix
     ./fzf.nix
