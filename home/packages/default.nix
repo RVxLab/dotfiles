@@ -1,10 +1,14 @@
 {
   imports = [
+    ./cli.nix
     ./direnv.nix
+    ./ffmpeg.nix
     ./fzf.nix
+    ./git.nix
     ./kitty.nix
+    ./lua.nix
     ./obsidian.nix
-    ./packages.nix
+    ./spotify.nix
     ./starship.nix
     ./wezterm.nix
     ./zoxide.nix

@@ -3,27 +3,30 @@
   homebrew = {
     enable = true;
 
-    # Uncomment when finishing migration to Nix
-    # onActivation.cleanup = "uninstall";
+    onActivation.cleanup = "uninstall";
 
     taps = [
       "homebrew/cask-fonts"
+      "koekeishiya/formulae"
     ];
 
     casks = [
       "docker"
+      "flameshot"
       "font-caskaydia-cove-nerd-font"
+      "font-fira-code-nerd-font"
       "font-hack-nerd-font"
+      "hammerspoon"
       "jetbrains-toolbox"
-      "karabiner-elements"
       "libreoffice"
       "linearmouse"
       "raycast"
     ];
 
     brews = [
+      "bob"
       # TODO: Migrate to Nix-Darwin version, it currently crashes though
-      "koekeishiya/formulae/yabai"
+      "yabai"
     ];
   };
 }
