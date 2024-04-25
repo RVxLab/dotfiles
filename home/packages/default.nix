@@ -7,6 +7,7 @@
     ./fzf.nix
     ./git.nix
     ./kitty.nix
+    ./linters.nix
     ./lua.nix
     ./obsidian.nix
     ./spotify.nix
