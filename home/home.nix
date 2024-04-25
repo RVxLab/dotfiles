@@ -1,5 +1,4 @@
-{ vars, ... }:
-{
+{vars, ...}: {
   home = {
     username = vars.username;
     homeDirectory = vars.homeDirectory;

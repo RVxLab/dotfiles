@@ -33,8 +33,14 @@
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
   };
 
-  outputs = { self, nix-darwin, nixpkgs, home-manager, nurpkgs, ... } @ inputs:
-  let
+  outputs = {
+    self,
+    nix-darwin,
+    nixpkgs,
+    home-manager,
+    nurpkgs,
+    ...
+  } @ inputs: let
     # Define the overlays
     darwinOverlays = [
       inputs.nixpkgs-firefox-darwin.overlay
@@ -45,50 +51,54 @@
     ];
 
     # Packages helper
-    mkPkgs = system: overlays: import nixpkgs {
-      inherit system overlays;
-      config.allowUnfree = true;
-    };
+    mkPkgs = system: overlays:
+      import nixpkgs {
+        inherit system overlays;
+        config.allowUnfree = true;
+      };
 
     # Helper to create a Darwin system
-    darwinSystem = system: { hostname, username, ... }:
-    let
+    darwinSystem = system: {
+      hostname,
+      username,
+      ...
+    }: let
       homeDirectory = "/Users/${username}";
       vars = {
         inherit hostname username system homeDirectory;
       };
-    in nix-darwin.lib.darwinSystem {
-      inherit system;
-      pkgs = mkPkgs system (overlays ++ darwinOverlays);
+    in
+      nix-darwin.lib.darwinSystem {
+        inherit system;
+        pkgs = mkPkgs system (overlays ++ darwinOverlays);
 
-      modules = [
-        home-manager.darwinModules.home-manager
-        ./systems/darwin
-        ./modules/devenv.nix
-        ./modules/home-manager.nix
-        ./modules/homebrew.nix
-        ./modules/nix.nix
-        {
-          users.users.${username} = {
-            home = homeDirectory;
-          };
-
-          home-manager = {
-            extraSpecialArgs = {
-              inherit vars;
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./systems/darwin
+          ./modules/devenv.nix
+          ./modules/home-manager.nix
+          ./modules/homebrew.nix
+          ./modules/nix.nix
+          {
+            users.users.${username} = {
+              home = homeDirectory;
             };
 
-            users.${username} = import ./home/darwin.nix;
-          };
-        }
-      ];
+            home-manager = {
+              extraSpecialArgs = {
+                inherit vars;
+              };
 
-      specialArgs = { inherit vars; };
-    };
+              users.${username} = import ./home/darwin.nix;
+            };
+          }
+        ];
+
+        specialArgs = {inherit vars;};
+      };
 
     # Set the Git commit hash for darwin-version
     system.configurationRevision = self.rev or self.dirtyRev or null;
-
   in {
     darwinConfigurations.macbook = darwinSystem "aarch64-darwin" (import ./host.nix);
   };

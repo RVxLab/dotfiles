@@ -1,5 +1,8 @@
-{ vars, pkgs, ... }:
-let
+{
+  vars,
+  pkgs,
+  ...
+}: let
   addons = pkgs.nur.repos.rycee.firefox-addons;
   extensions = [
     addons.don-t-fuck-with-paste

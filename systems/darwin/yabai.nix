@@ -20,7 +20,7 @@
   };
   extraConfig = let
     rule = "yabai -m rule --add";
-    unmanaged = apps: builtins.concatStringsSep "\n" (map(app: ''${rule} app="^${app}$" manage=off'') apps);
+    unmanaged = apps: builtins.concatStringsSep "\n" (map (app: ''${rule} app="^${app}$" manage=off'') apps);
   in ''
     ${unmanaged ["System Settings" "Archive Utility" "Raycast"]}
   '';

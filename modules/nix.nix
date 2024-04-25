@@ -1,5 +1,8 @@
-{ pkgs, vars, ... }:
 {
+  pkgs,
+  vars,
+  ...
+}: {
   # Allow Nix to manage itself
   services.nix-daemon.enable = true;
 

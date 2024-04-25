@@ -1,5 +1,8 @@
-{ vars, nixpkgs, ... }:
 {
+  vars,
+  nixpkgs,
+  ...
+}: {
   # Let nixpkgs know this is a Mac
   nixpkgs.hostPlatform = vars.system;
 
