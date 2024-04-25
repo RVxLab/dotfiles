@@ -42,6 +42,12 @@ let
     "browser.tabs.loadBookmarksInBackground" = true;
 
     "media.videocontrols.picture-in-picture.video-toggle.always-show" = true;
+
+    # Disable those bloody sponsored links
+    "browser.newtabpage.activity-stream.showSponsored" = false;
+    "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+    "services.sync.prefs.sync-seen.services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsored" = false;
+    "services.sync.prefs.sync-seen.services.sync.prefs.sync.browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
   };
 
   lock = value: {
@@ -51,6 +57,6 @@ let
 in {
   # TODO: Make Firefox properly declarative
   programs.firefox = {
-    enable = true;
+    enable = false;
   };
 }
