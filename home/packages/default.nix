@@ -2,6 +2,7 @@
   imports = [
     ./cli.nix
     ./database.nix
+    ./discord.nix
     ./direnv.nix
     ./ffmpeg.nix
     ./fzf.nix
