@@ -29,5 +29,9 @@
       # TODO: Migrate to Nix-Darwin version, it currently crashes though
       "yabai"
     ];
+
+    masApps = {
+      Tailscale = 1475387142;
+    };
   };
 }
