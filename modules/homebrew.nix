@@ -11,7 +11,6 @@
 
     casks = [
       "docker"
-      # TODO: Migrate to Nix
       "firefox"
       "flameshot"
       "font-caskaydia-cove-nerd-font"
