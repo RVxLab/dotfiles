@@ -28,9 +28,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Firefox for MacOS
-    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
   };
 
   outputs = {
@@ -42,9 +39,7 @@
     ...
   } @ inputs: let
     # Define the overlays
-    darwinOverlays = [
-      inputs.nixpkgs-firefox-darwin.overlay
-    ];
+    darwinOverlays = [];
 
     overlays = [
       nurpkgs.overlay
