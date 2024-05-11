@@ -10,6 +10,7 @@
     ./kitty.nix
     ./linters.nix
     ./lua.nix
+    ./neovim.nix
     ./obsidian.nix
     ./spotify.nix
     ./starship.nix

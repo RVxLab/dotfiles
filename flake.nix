@@ -28,6 +28,12 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Neovim Nightly
+    neovim-nightly = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -36,6 +42,7 @@
     nixpkgs,
     home-manager,
     nurpkgs,
+    neovim-nightly,
     ...
   } @ inputs: let
     # Define the overlays
@@ -43,6 +50,7 @@
 
     overlays = [
       nurpkgs.overlay
+      neovim-nightly.overlay
     ];
 
     # Packages helper
