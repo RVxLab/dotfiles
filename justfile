@@ -76,4 +76,12 @@ generate-host:
 
 # Update the flake
 update:
+    #!/usr/bin/env bash
+
     nix flake update
+
+    if [ ! -z "$(git diff --name-only ./flake.lock)" ]
+    then
+        git add ./flake.lock
+        git commit -m "Update Flake inputs" -- ./flake.lock
+    fi
