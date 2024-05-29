@@ -50,7 +50,6 @@
 
     overlays = [
       nurpkgs.overlay
-      neovim-nightly.overlay
     ];
 
     # Packages helper
