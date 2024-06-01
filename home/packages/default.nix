@@ -12,7 +12,6 @@
     ./lua.nix
     ./neovim.nix
     ./obsidian.nix
-    ./silicon.nix
     ./spotify.nix
     ./starship.nix
     ./wezterm.nix
