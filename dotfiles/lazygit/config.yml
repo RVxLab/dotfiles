@@ -1,0 +1,8 @@
+git:
+  paging:
+    pager: "delta --dark --paging=never"
+    colorArg: "always"
+    externalDiffCommand: "difft --color=always"
+
+os:
+  editPreset: 'nvim'

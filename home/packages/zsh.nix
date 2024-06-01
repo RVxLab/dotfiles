@@ -18,6 +18,10 @@
       a = "php artisan";
     };
 
+    localVariables = {
+      XDG_CONFIG_HOME = "$HOME/.config";
+    };
+
     initExtra = ''
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
