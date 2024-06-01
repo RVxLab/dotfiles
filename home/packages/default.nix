@@ -12,6 +12,7 @@
     ./lua.nix
     ./neovim.nix
     ./obsidian.nix
+    ./rust.nix
     ./spotify.nix
     ./starship.nix
     ./wezterm.nix
