@@ -16,6 +16,7 @@
       "font-caskaydia-cove-nerd-font"
       "font-fira-code-nerd-font"
       "font-hack-nerd-font"
+      "font-jetbrains-mono-nerd-font"
       "hammerspoon"
       "jetbrains-toolbox"
       "libreoffice"

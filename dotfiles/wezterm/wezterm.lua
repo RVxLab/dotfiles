@@ -4,17 +4,14 @@ local config = wezterm.config_builder()
 -------------------------------------------------------------------------------
 -- Fonts
 -------------------------------------------------------------------------------
-config.font = wezterm.font("Hack Nerd Font Mono")
-config.font_size = 13.0
-config.line_height = 1.3
-
--- Fix fonts looking really thin
-config.freetype_load_flags = "NO_HINTING"
+config.font = wezterm.font("JetbrainsMono Nerd Font")
+config.font_size = 14.0
+config.line_height = 1.4
 
 -------------------------------------------------------------------------------
 -- Color scheme
 -------------------------------------------------------------------------------
-config.color_scheme = "Catppuccin Frappe"
+config.color_scheme = "Catppuccin Macchiato"
 
 -------------------------------------------------------------------------------
 -- Keymap
@@ -30,5 +27,12 @@ config.window_padding = {
     bottom = 0,
     left = 0,
 }
+
+-------------------------------------------------------------------------------
+-- Tab bar
+-------------------------------------------------------------------------------
+config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
+config.show_new_tab_button_in_tab_bar = false
 
 return config
