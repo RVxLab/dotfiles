@@ -26,7 +26,6 @@
 
     brews = [
       "silicon"
-      # TODO: Migrate to Nix-Darwin version, it currently crashes though
       "yabai"
     ];
 

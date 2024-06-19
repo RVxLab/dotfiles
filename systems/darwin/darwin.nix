@@ -17,8 +17,4 @@
     hostName = vars.hostname;
     computerName = vars.hostname;
   };
-
-  services = {
-    yabai = import ./yabai.nix;
-  };
 }
