@@ -22,6 +22,8 @@
       "libreoffice"
       "linearmouse"
       "raycast"
+      "via"
+      "vivaldi"
     ];
 
     brews = [
