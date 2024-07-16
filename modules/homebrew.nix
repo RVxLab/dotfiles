@@ -10,6 +10,8 @@
     ];
 
     casks = [
+      "affinity-designer"
+      "affinity-photo"
       "docker"
       "firefox"
       "flameshot"
