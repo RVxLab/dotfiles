@@ -1,0 +1,14 @@
+# Yabai
+hyper - y : /opt/homebrew/bin/yabai --restart-service
+hyper - u : /opt/homebrew/bin/yabai -m space --balance
+hyper - up : /opt/homebrew/bin/yabai -m space --mirror x-axis
+hyper - right : /opt/homebrew/bin/yabai -m space --mirror y-axis
+hyper - h : /opt/homebrew/bin/yabai -m window --focus west
+hyper - j : /opt/homebrew/bin/yabai -m window --focus south
+hyper - k : /opt/homebrew/bin/yabai -m window --focus north
+hyper - l : /opt/homebrew/bin/yabai -m window --focus east
+
+# Spotify Player
+hyper - p : /opt/homebrew/bin/spotify_player playback play-pause
+hyper - 0x21 : /opt/homebrew/bin/spotify_player playback previous
+hyper - 0x1E : /opt/homebrew/bin/spotify_player playback next

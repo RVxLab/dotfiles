@@ -1,0 +1,23 @@
+# Config settings
+WINDOW_PADDING_PT="8"
+WINDOW_PADDING_TOP_PT="$WINDOW_PADDING_PT"
+WINDOW_GAP_PT="4"
+
+# Enable debug output
+# yabai -m config debug_output on
+
+# Enable tiling
+yabai -m config layout bsp
+
+# Window padding and spacing
+yabai -m config top_padding "$WINDOW_PADDING_TOP_PT"
+yabai -m config right_padding "$WINDOW_PADDING_PT"
+yabai -m config bottom_padding "$WINDOW_PADDING_PT"
+yabai -m config left_padding "$WINDOW_PADDING_PT"
+yabai -m config window_gap "$WINDOW_GAP_PT"
+
+# Do not manage these apps. Existing windows will need to be closed first
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Godot$" manage=off

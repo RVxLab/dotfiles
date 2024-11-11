@@ -22,7 +22,7 @@ stow:
 
     case {{ system }} in
         Darwin)
-            echo "TODO: Implement"
+            stow -R -d "$HOME/.dotfiles/dotfiles" -t "$HOME" bat karabiner kitty lazygit skhd starship yabai yazi zsh
             ;;
         *)
             echo "Unknown system, aborting"
