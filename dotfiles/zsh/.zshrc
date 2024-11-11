@@ -40,6 +40,9 @@ eval "$(starship init zsh)"
 # Fzf
 source <(fzf --zsh)
 
+# Zoxide
+eval "$(zoxide init zsh)"
+
 # Fix moving forwards and backwards between words with Opt + Arrow
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
