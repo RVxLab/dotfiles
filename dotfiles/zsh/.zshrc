@@ -40,6 +40,9 @@ then
     then
         export XDG_CONFIG_HOME="$HOME/.config"
     fi
+
+    # Set the Brewfile location
+    export HOMEBREW_BUNDLE_FILE_GLOBAL="$HOME/.dotfiles/Brewfile"
 fi
 
 # Initialize Starship
@@ -67,10 +70,8 @@ then
     compinit
 fi
 
-
 # Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="/Users/richard/Library/Application Support/Herd/config/php/83/"
-
+export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
 
 # Herd injected PHP binary.
-export PATH="/Users/richard/Library/Application Support/Herd/bin/":$PATH
+export PATH="$HOME/Library/Application Support/Herd/bin/":$PATH
