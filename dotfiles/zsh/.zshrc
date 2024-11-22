@@ -35,6 +35,9 @@ then
     eval "$(bob complete zsh)"
     export PATH="$PATH:$HOME/.local/share/bob/nvim-bin"
 
+    # Set up Docker
+    export PATH="$PATH:$HOME/.docker/bin"
+
     # Ensure XDG_CONFIG_HOME is set up if it isn't
     if [ -z "$XDG_CONFIG_HOME" ]
     then
@@ -74,4 +77,4 @@ fi
 export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
 
 # Herd injected PHP binary.
-export PATH="$HOME/Library/Application Support/Herd/bin/":$PATH
+export PATH="$HOME/Library/Application Support/Herd/bin/:$PATH"
