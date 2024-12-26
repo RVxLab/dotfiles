@@ -15,6 +15,9 @@ then
     IS_DARWIN=1
 fi
 
+# Set up default editor
+EDITOR="nvim"
+
 # Aliases
 alias a="php artisan"
 alias cat="bat --color=always"
