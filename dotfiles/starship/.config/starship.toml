@@ -1,75 +1,95 @@
-add_newline = false
-format = "$username$hostname$directory$git_branch$git_state$git_status$git_metrics$fill${custom.laravel}$php$rust$nodejs$cmd_duration $jobs $time$line_break$character"
+"$schema" = 'https://starship.rs/config-schema.json'
 
-[character]
-error_symbol = "[❯](red)"
-success_symbol = "[❯](blue)"
-vicmd_symbol = "[❮](green)"
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$fill\
+$cmd_duration\
+$php\
+${custom.laravel}\
+$python\
+$time\
+$line_break\
+$character"""
 
-[cmd_duration]
-format = "[$duration]($style)"
-style = "yellow"
+# Theming
+palette = "catppuccin_macchiato"
 
-[custom]
-[custom.laravel]
-command = "jq -r '.packages[] | select(.name == \"laravel/framework\") | .version' composer.lock"
-description = "Shows the current Laravel version"
-format = "[$symbol $output ]($style)"
-style = "bold red"
-symbol = "L"
-when = "test -d vendor/laravel/framework"
-
-[custom.stunnel]
-command = "ps -o etime= -p $(ps aux | grep stunnel | grep -v grep | awk '{print $2}')"
-format = "[TUNNEL OPEN for $output]($style)"
-style = "red"
-when = "ps aux | grep stunnel | grep -v grep"
+[palettes.catppuccin_macchiato]
+rosewater = "#f4dbd6"
+flamingo = "#f0c6c6"
+pink = "#f5bde6"
+mauve = "#c6a0f6"
+red = "#ed8796"
+maroon = "#ee99a0"
+peach = "#f5a97f"
+yellow = "#eed49f"
+green = "#a6da95"
+teal = "#8bd5ca"
+sky = "#91d7e3"
+sapphire = "#7dc4e4"
+blue = "#8aadf4"
+lavender = "#b7bdf8"
+text = "#cad3f5"
+subtext1 = "#b8c0e0"
+subtext0 = "#a5adcb"
+overlay2 = "#939ab7"
+overlay1 = "#8087a2"
+overlay0 = "#6e738d"
+surface2 = "#5b6078"
+surface1 = "#494d64"
+surface0 = "#363a4f"
+base = "#24273a"
+mantle = "#1e2030"
+crust = "#181926"
 
 [directory]
-read_only = " "
 style = "blue"
-truncate_to_repo = false
-truncation_length = 4
 
-[fill]
-symbol = " "
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
 
 [git_branch]
-format = "[$symbol$branch]($style) "
-style = "bright-black"
-symbol = " "
-
-[git_metrics]
-disabled = false
-
-[git_state]
-format = "'([$state( $progress_current/$progress_total)]($style)) '"
+format = "[$branch]($style)"
 style = "bright-black"
 
 [git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
+stashed = "≡"
 
-[jobs]
-format = "[$symbol]($style)"
-number_threshold = 1
-style = "bold red"
-symbol = ""
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
 
-[memory_usage]
-symbol = " "
+[cmd_duration]
+format = "[$duration]($style) "
+style = "yellow"
 
-[nodejs]
-format = "[$symbol($version )]($style)"
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"
 
-[php]
-format = "[$symbol($version )]($style)"
-
-[rust]
-format = "[$symbol($version )]($style)"
-symbol = " "
+[fill]
+symbol = ' '
 
 [time]
 disabled = false
-format = "[$time ]($style)"
-style = "bold white"
+format = "[\ue38b $time]($style) "
+time_format = "%H:%M"
 
+[custom.laravel]
+command = '''
+rg "const VERSION = '(\d+\.\d+\.\d+)';" -Nor '$1' vendor/laravel/framework/src/Illuminate/Foundation/Application.php
+'''
+detect_files = ['artisan']
+detect_folders = ['vendor/laravel/framework']
+symbol = "\uf2f7"
+style = 'bold red'
+format = ' [$symbol $output]($style) '
