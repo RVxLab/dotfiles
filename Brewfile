@@ -1,9 +1,11 @@
 # Taps
 tap "koekeishiya/formulae"
+tap "tursodatabase/tap"
 
 # Binaries
 brew "bat"
 brew "bob"
+brew "coreutils"
 brew "curl"
 brew "difftastic"
 brew "dust"
@@ -33,6 +35,7 @@ brew "starship"
 brew "stow"
 brew "stylua"
 brew "tre-command"
+brew "turso"
 brew "unzip"
 brew "wget"
 brew "yabai"
