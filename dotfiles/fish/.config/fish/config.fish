@@ -16,7 +16,7 @@ abbr -a s kitten ssh
 abbr -a bb brew bundle --global
 
 # Add path
-fish_add_path "$HOME/bin"
+fish_add_path "$HOME/bin" "$HOME/.volta/bin"
 
 # Ripgrep's config location
 set -gx RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/.ripgreprc"
