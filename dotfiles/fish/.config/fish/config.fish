@@ -7,9 +7,6 @@ else
     set -f is_darwin 0
 end
 
-# Set up default editor
-set -gx EDITOR "nvim"
-
 # Abbreviations
 abbr -a a php artisan
 abbr -a lg lazygit
@@ -62,3 +59,7 @@ if status is-interactive
         fish_add_path "$HOME/.local/share/bob/nvim-bin"
     end
 end
+
+# Set up defaults
+set -gx EDITOR "$(which nvim)"
+set -gx SHELL "$(which fish)"
