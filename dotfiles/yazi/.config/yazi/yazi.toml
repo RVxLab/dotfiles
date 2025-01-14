@@ -4,6 +4,6 @@ run = "nvim \"$@\""
 
 [manager]
 show_hidden = true
-sort_by = "modified"
+sort_by = "natural"
 sort_dir_first = true
 
