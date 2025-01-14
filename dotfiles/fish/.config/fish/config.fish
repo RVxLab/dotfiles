@@ -51,6 +51,7 @@ if status is-interactive
     starship init fish | source
     fzf --fish | source
     zoxide init fish | source
+    direnv hook fish | source
 
     if test "$is_darwin" = 1
         bob complete fish | source
