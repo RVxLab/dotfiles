@@ -21,6 +21,9 @@ abbr -a bb brew bundle --global
 # Add path
 fish_add_path "$HOME/bin"
 
+# Ripgrep's config location
+set -gx RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/.ripgreprc"
+
 # Add paths only on macOS
 if test "$is_darwin" = 1
     fish_add_path "$HOME/.docker/bin"

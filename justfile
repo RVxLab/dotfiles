@@ -22,7 +22,7 @@ stow:
 
     case {{ system }} in
         Darwin)
-            stow -R -d "$HOME/.dotfiles/dotfiles" -t "$HOME" bat fastfetch fish karabiner kitty lazygit skhd starship yabai yazi zsh
+            stow -R -d "$HOME/.dotfiles/dotfiles" -t "$HOME" bat fastfetch fish karabiner kitty lazygit ripgrep skhd starship yabai yazi zsh
             ;;
         *)
             echo "Unknown system, aborting"
