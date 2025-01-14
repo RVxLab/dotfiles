@@ -16,6 +16,7 @@ abbr -a lg lazygit
 abbr -a fzf fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
 abbr -a ll eza -lag --header
 abbr -a s kitten ssh
+abbr -a bb brew bundle --global
 
 # Add path
 fish_add_path "$HOME/bin"
