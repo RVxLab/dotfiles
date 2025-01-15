@@ -15,8 +15,11 @@ abbr -a ll eza -lag --header
 abbr -a s kitten ssh
 abbr -a bb brew bundle --global
 
+# Set up Volta
+set -gx VOLTA_HOME "$HOME/.volta"
+
 # Add path
-fish_add_path "$HOME/bin" "$HOME/.volta/bin"
+fish_add_path "$HOME/bin" "$VOLTA_HOME/bin"
 
 # Ripgrep's config location
 set -gx RIPGREP_CONFIG_PATH "$HOME/.config/ripgrep/.ripgreprc"
