@@ -5,7 +5,7 @@
 Clone this repo to `$HOME/.dotfiles`:
 
 ```shell
-git clone git@git.rvx.works:RVxLab/dotfiles "$HOME/.dotfiles"
+git clone git@github.com:RVxLab/dotfiles "$HOME/.dotfiles"
 ```
 
 If [just](https://just.systems) is installed, you can run the following command to install relevant systems:
