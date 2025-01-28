@@ -58,6 +58,9 @@ if status is-interactive
     zoxide init fish | source
     direnv hook fish | source
 
+    # Herd completion assumes the command is `herd.phar`
+    herd completion fish | sed 's/herd\.phar/herd/g' | source
+
     if test "$is_darwin" = 1
         bob complete fish | source
         fish_add_path "$HOME/.local/share/bob/nvim-bin"
