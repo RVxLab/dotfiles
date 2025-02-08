@@ -10,10 +10,9 @@ end
 # Abbreviations
 abbr -a a php artisan
 abbr -a lg lazygit
-# abbr -a fzf fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'
 abbr -a ll eza -lag --header
 abbr -a s kitten ssh
-abbr -a bb brew bundle --global
+abbr -a bb brew bundle --global --cleanup
 
 # Set up Volta
 set -gx VOLTA_HOME "$HOME/.volta"
@@ -53,7 +52,6 @@ fish_add_path "$PNPM_HOME"
 if status is-interactive
     # Initialize CLI tooling
     starship init fish | source
-    # fzf --fish | source
     tv init fish | source
     zoxide init fish | source
     direnv hook fish | source
