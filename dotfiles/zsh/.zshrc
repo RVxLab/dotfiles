@@ -6,6 +6,12 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_FIND_NO_DUPS
 setopt HIST_SAVE_NO_DUPS
 
+# Ensure history is being saved correctly
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000
+export SAVEHIST=1000
+setopt appendhistory
+
 # Check if we're on macOS
 SYSTEM="$(uname -s)"
 IS_DARWIN=0
@@ -15,9 +21,6 @@ then
     IS_DARWIN=1
 fi
 
-# Set up default editor
-EDITOR="nvim"
-
 # Aliases
 alias a="php artisan"
 alias cat="bat --color=always"
@@ -25,6 +28,7 @@ alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {
 alias lg="lazygit"
 alias ll="eza -lag --header"
 alias ls="eza -lag --header"
+alias s="kitten ssh"
 
 # When on macOS...
 if [ "$IS_DARWIN" = 1 ]
@@ -76,8 +80,28 @@ then
     compinit
 fi
 
+# Add home bin scripts to path
+export PATH="$PATH:$HOME/bin"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
 
 # Herd injected PHP binary.
 export PATH="$HOME/Library/Application Support/Herd/bin/:$PATH"
+
+
+# Set up shell defaults
+export EDITOR="$(which nvim)"
+export SHELL="$(which fish)"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+
