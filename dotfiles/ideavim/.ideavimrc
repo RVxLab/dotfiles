@@ -1,0 +1,70 @@
+" Settings
+set hlsearch
+set scrolloff=5
+set ignorecase smartcase
+set history=1000
+set incsearch
+set relativenumber
+set visualbell
+set idearefactormode=visual
+set showcmd
+set showmode
+set ideastatusicon=gray
+set virtualedit=onemore
+
+" Plugins
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+Plug 'machakann/vim-highlightedyank'
+let g:highlightedyank_highlight_duration = "350"
+" let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+" let g:highlightedyank_highlight_foreground_color = "rgba(0, 0, 0, 255)"
+
+set mini-ai
+set which-key
+Plug 'ideavim-peekaboo'
+
+" Set leader to spacebar
+let mapleader = " "
+
+" Editing .ideavimrc
+nnoremap \\ce :e ~/.ideavimrc<CR>
+nmap \\cr <Action>(IdeaVim.ReloadVimRc.reload)
+
+" Copy/paste from system clipboard
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
+
+" Search for stuff
+nmap <leader>ff <Action>(GotoFile)
+nmap <leader>fc <Action>(GotoClass)
+nmap <leader>fs <Action>(FindInPath)
+nmap <leader>fS <Action>(GotoSymbol)
+nmap <leader>fip <Action>(SelectInProjectView)
+
+" Go to
+nmap <leader>gt <Action>(GotoTest)
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+
+" Diagnostics
+nmap [d <Action>(GotoPreviousError)
+nmap ]d <Action>(GotoNextError)
+
+" Breakpoints
+nmap <leader>bt <Action>(ToggleLineBreakpoint)
+
+" Acejump
+nmap <leader>j <Action>(AceTargetAction)
+
+" Tests
+nmap <leader>tt <Action>(RunClass)
+nmap <leader>td <Action>(Debug)
+nmap <leader>tr <Action>(Rerun)
+
+" Handlers
+sethandler <C-d> a:vim
+sethandler <C-n> a:vim
+sethandler <C-p> a:vim

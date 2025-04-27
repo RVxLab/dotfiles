@@ -63,6 +63,16 @@ if status is-interactive
         bob complete fish | source
         fish_add_path "$HOME/.local/share/bob/nvim-bin"
     end
+
+    # Add the Go bin directory to PATH if Go is installed
+    if command -q go
+        fish_add_path "$(go env GOPATH)/bin"
+    end
+
+    # If composer is installed, add the global bin path to the PATH
+    if command -q composer
+        fish_add_path "$(composer -n config --global home)/$(composer -n config --global bin-dir)"
+    end
 end
 
 # Set up defaults
