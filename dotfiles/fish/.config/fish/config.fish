@@ -37,6 +37,7 @@ if test "$is_darwin" = 1
     set -gx HOMEBREW_BUNDLE_FILE_GLOBAL "$HOME/.dotfiles/Brewfile"
 
     # Laravel Herd
+    set -gx HERD_PHP_82_INI_SCAN_DIR "$HOME/Library/Application Support/Herd/config/php/82"
     set -gx HERD_PHP_83_INI_SCAN_DIR "$HOME/Library/Application Support/Herd/config/php/83"
     set -gx HERD_PHP_84_INI_SCAN_DIR "$HOME/Library/Application Support/Herd/config/php/84"
 
