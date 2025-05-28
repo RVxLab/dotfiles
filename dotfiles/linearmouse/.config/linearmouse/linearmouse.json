@@ -1,0 +1,20 @@
+{
+  "$schema" : "https:\/\/schema.linearmouse.app\/0.10.0",
+  "schemes" : [
+    {
+      "pointer" : {
+        "acceleration" : 0.61,
+        "disableAcceleration" : true,
+        "speed" : 0.0689655172413792768
+      },
+      "if" : {
+        "device" : {
+          "vendorID" : "0x3233",
+          "productID" : "0x9",
+          "category" : "mouse",
+          "productName" : "Ducky Feather"
+        }
+      }
+    }
+  ]
+}
