@@ -1,5 +1,7 @@
 # My macOS and Linux Dotfiles
 
+> ⚠ Migrated to [Forgejo](https://code.rvx.works/RVxLab/dotfiles).
+
 ## Installation
 
 Clone this repo to `$HOME/.dotfiles`:
